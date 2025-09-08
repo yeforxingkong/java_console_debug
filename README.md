@@ -108,9 +108,9 @@ python .\app.py
 > >
 > > 顶部图标含义从左到右依次是 : 折叠/展开模板文本,  选择jar包目录,  清除输入输出界面
 >
-> ![](refs\heads\main\img\project_picture1.png)
+> ![](https://raw.githubusercontent.com/yeforxingkong/java_console_debug/refs/heads/main/img/project_picture1.png)
 >
-> ![](refs\heads\main\img\projiect_moive1.gif)
+> ![](https://raw.githubusercontent.com/yeforxingkong/java_console_debug/refs/heads/main/img/projiect_moive1.gif)
 
 
 
@@ -120,7 +120,7 @@ python .\app.py
 >
 > 点击顶部文件图标,可以更换jar包目录
 >
-> ![](refs\heads\main\img\project_picture2.png)
+> ![](https://raw.githubusercontent.com/yeforxingkong/java_console_debug/refs/heads/main/img/project_picture2.png)
 
 
 
