@@ -1,0 +1,580 @@
+// 1. 主方法模板
+public class Main {
+    public static void main(String[] args) {
+        // 程序入口
+    }
+}
+
+// 2. 变量声明与初始化
+int number = 10;
+double pi = 3.14;
+String name = "Java";
+boolean isTrue = true;
+
+// 3. 条件语句
+if (condition) {
+    // 条件为真时执行
+} else if (anotherCondition) {
+    // 另一个条件为真时执行
+} else {
+    // 条件为假时执行
+}
+
+// 4. 循环语句
+// for循环
+for (int i = 0; i < 10; i++) {
+    System.out.println(i);
+}
+
+// while循环
+int i = 0;
+while (i < 10) {
+    System.out.println(i);
+    i++;
+}
+
+// do-while循环
+int j = 0;
+do {
+    System.out.println(j);
+    j++;
+} while (j < 10);
+
+// 5. 字符串操作
+String str = "Hello, World!";
+int length = str.length(); // 获取字符串长度
+String newStr = str + " Welcome to Java!"; // 字符串拼接
+String[] parts = str.split(","); // 字符串分割
+String replacedStr = str.replace("Hello", "Hi"); // 字符串替换
+boolean isEqual = str.equals("Hello, World!"); // 字符串比较
+boolean contains = str.contains("Hello"); // 检查是否包含子串
+String substring = str.substring(0, 5); // 获取子串
+
+// 6. 数组操作
+int[] numbers = {1, 2, 3, 4, 5}; // 数组声明与初始化
+for (int num : numbers) { // 遍历数组
+    System.out.println(num);
+}
+
+// 7. 集合操作
+// List
+import java.util.ArrayList;
+import java.util.List;
+List<String> list = new ArrayList<>(); // 创建列表
+list.add("Java"); // 添加元素
+list.add("Python");
+for (String item : list) { // 遍历列表
+    System.out.println(item);
+}
+
+// Set
+import java.util.HashSet;
+import java.util.Set;
+Set<String> set = new HashSet<>(); // 创建集合
+set.add("Java");
+set.add("Python");
+set.add("Java"); // 重复元素不会被添加
+for (String item : set) { // 遍历集合
+    System.out.println(item);
+}
+
+// Map
+import java.util.HashMap;
+import java.util.Map;
+Map<String, Integer> map = new HashMap<>(); // 创建Map
+map.put("Alice", 25); // 添加键值对
+map.put("Bob", 30);
+for (Map.Entry<String, Integer> entry : map.entrySet()) { // 遍历Map
+    System.out.println(entry.getKey() + ": " + entry.getValue());
+}
+int age = map.get("Alice"); // 获取值
+boolean containsKey = map.containsKey("Bob"); // 检查是否包含键
+boolean containsValue = map.containsValue(25); // 检查是否包含值
+
+// 8. 文件读取
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+try (BufferedReader br = new BufferedReader(new FileReader("file.txt"))) {
+    String line;
+    while ((line = br.readLine()) != null) {
+        System.out.println(line);
+    }
+} catch (IOException e) {
+    e.printStackTrace();
+}
+
+// 9. 文件写入
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+try (BufferedWriter bw = new BufferedWriter(new FileWriter("file.txt"))) {
+    bw.write("Hello, World!");
+} catch (IOException e) {
+    e.printStackTrace();
+}
+
+// 10. 异常处理
+try {
+    // 可能抛出异常的代码
+} catch (Exception e) {
+    e.printStackTrace();
+} finally {
+    // 无论是否发生异常都会执行的代码
+}
+
+// 11. 多线程
+Thread thread = new Thread(() -> {
+    System.out.println("线程运行中");
+});
+thread.start();
+
+// 12. 日期时间操作
+import java.time.LocalDateTime;
+LocalDateTime now = LocalDateTime.now();
+System.out.println("当前时间: " + now);
+
+// 13. 随机数生成
+import java.util.Random;
+Random random = new Random();
+int randomNumber = random.nextInt(100); // 生成0到99的随机数
+
+// 14. 对象定义
+class Person {
+    private String name;
+    private int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public void display() {
+        System.out.println("Name: " + name + ", Age: " + age);
+    }
+}
+
+// 15. 使用对象
+Person person = new Person("Alice", 25);
+person.display();
+
+// 16. 枚举类型
+enum Day {
+    MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY
+}
+Day today = Day.MONDAY;
+System.out.println("Today is: " + today);
+
+// 17. 泛型方法
+public <T> void printArray(T[] array) {
+    for (T element : array) {
+        System.out.println(element);
+    }
+}
+
+// 18. Lambda表达式
+List<String> names = Arrays.asList("Alice", "Bob", "Charlie");
+names.forEach(name -> System.out.println(name));
+
+// 19. Stream API
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+List<String> names = Arrays.asList("Alice", "Bob", "Charlie");
+List<String> filteredNames = names.stream()
+    .filter(name -> name.startsWith("A"))
+    .collect(Collectors.toList());
+filteredNames.forEach(System.out::println);
+
+// 20. JSON处理 (使用Jackson)
+import com.fasterxml.jackson.databind.ObjectMapper;
+ObjectMapper mapper = new ObjectMapper();
+String json = "{\"name\":\"Alice\",\"age\":25}";
+Person person = mapper.readValue(json, Person.class);
+System.out.println(person.getName());
+
+// 21. 网络请求 (使用HttpURLConnection)
+import java.net.HttpURLConnection;
+import java.net.URL;
+URL url = new URL("https://api.example.com/data");
+HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+connection.setRequestMethod("GET");
+int responseCode = connection.getResponseCode();
+System.out.println("Response Code: " + responseCode);
+
+// 22. 数据库连接 (使用JDBC)
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb", "user", "password");
+Statement statement = connection.createStatement();
+ResultSet resultSet = statement.executeQuery("SELECT * FROM users");
+while (resultSet.next()) {
+    System.out.println(resultSet.getString("username"));
+}
+
+// 23. 正则表达式
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+String text = "Hello, 123 World!";
+String pattern = "\\d+"; // 匹配数字
+Pattern regex = Pattern.compile(pattern);
+Matcher matcher = regex.matcher(text);
+while (matcher.find()) {
+    System.out.println("Found: " + matcher.group());
+}
+
+// 24. 反射
+import java.lang.reflect.Method;
+Class<?> clazz = Class.forName("com.example.Person");
+Object instance = clazz.getDeclaredConstructor().newInstance();
+Method method = clazz.getMethod("display");
+method.invoke(instance);
+
+// 25. 单元测试 (使用JUnit)
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+public class MyTest {
+    @Test
+    public void testAddition() {
+        assertEquals(4, 2 + 2);
+    }
+}
+
+// 26. 日志记录 (使用SLF4J)
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+Logger logger = LoggerFactory.getLogger(Main.class);
+logger.info("This is an info message");
+logger.error("This is an error message");
+
+// 27. 多线程池
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+ExecutorService executor = Executors.newFixedThreadPool(5);
+for (int i = 0; i < 10; i++) {
+    executor.submit(() -> {
+        System.out.println("Task executed by thread: " + Thread.currentThread().getName());
+    });
+}
+executor.shutdown();
+
+// 28. 文件压缩 (使用Zip)
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
+try (ZipOutputStream zipOut = new ZipOutputStream(new FileOutputStream("output.zip"))) {
+    File fileToZip = new File("file.txt");
+    FileInputStream fis = new FileInputStream(fileToZip);
+    ZipEntry zipEntry = new ZipEntry(fileToZip.getName());
+    zipOut.putNextEntry(zipEntry);
+    byte[] bytes = new byte[1024];
+    int length;
+    while ((length = fis.read(bytes)) >= 0) {
+        zipOut.write(bytes, 0, length);
+    }
+    fis.close();
+}
+
+// 29. 文件解压缩 (使用Zip)
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
+try (ZipInputStream zipIn = new ZipInputStream(new FileInputStream("output.zip"))) {
+    ZipEntry entry = zipIn.getNextEntry();
+    while (entry != null) {
+        String filePath = "extracted/" + entry.getName();
+        FileOutputStream fos = new FileOutputStream(filePath);
+        byte[] buffer = new byte[1024];
+        int len;
+        while ((len = zipIn.read(buffer)) > 0) {
+            fos.write(buffer, 0, len);
+        }
+        fos.close();
+        entry = zipIn.getNextEntry();
+    }
+}
+
+// 30. 自定义注解
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+@Retention(RetentionPolicy.RUNTIME)
+@interface MyAnnotation {
+    String value() default "Default Value";
+}
+
+@MyAnnotation(value = "Custom Value")
+class MyClass {
+    // 类内容
+}
+
+
+
+
+
+/*=================================常用工具类===============================================*/
+
+// 1. Files 工具类 (java.nio.file.Files)
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.io.IOException;
+import java.util.List;
+
+// 读取文件内容到列表
+Path path = Paths.get("file.txt");
+try {
+    List<String> lines = Files.readAllLines(path);
+    lines.forEach(System.out::println);
+} catch (IOException e) {
+    e.printStackTrace();
+}
+
+// 写入文件
+try {
+    Files.write(path, "Hello, World!".getBytes());
+} catch (IOException e) {
+    e.printStackTrace();
+}
+
+// 复制文件
+Path source = Paths.get("source.txt");
+Path target = Paths.get("target.txt");
+try {
+    Files.copy(source, target);
+} catch (IOException e) {
+    e.printStackTrace();
+}
+
+// 删除文件
+try {
+    Files.delete(path);
+} catch (IOException e) {
+    e.printStackTrace();
+}
+
+// 检查文件是否存在
+boolean exists = Files.exists(path);
+System.out.println("File exists: " + exists);
+
+// 2. Objects 工具类 (java.util.Objects)
+import java.util.Objects;
+
+// 检查对象是否为null
+String str = null;
+if (Objects.isNull(str)) {
+    System.out.println("str is null");
+}
+
+// 检查对象是否不为null
+if (Objects.nonNull(str)) {
+    System.out.println("str is not null");
+}
+
+// 对象相等性检查
+String a = "Java";
+String b = "Java";
+boolean isEqual = Objects.equals(a, b);
+System.out.println("a equals b: " + isEqual);
+
+// 对象哈希码
+int hashCode = Objects.hash(a, b);
+System.out.println("Hash code: " + hashCode);
+
+// 3. Collections 工具类 (java.util.Collections)
+import java.util.Collections;
+import java.util.ArrayList;
+import java.util.List;
+
+// 排序
+List<Integer> numbers = new ArrayList<>();
+numbers.add(3);
+numbers.add(1);
+numbers.add(2);
+Collections.sort(numbers);
+System.out.println("Sorted list: " + numbers);
+
+// 反转列表
+Collections.reverse(numbers);
+System.out.println("Reversed list: " + numbers);
+
+// 查找最大值和最小值
+int max = Collections.max(numbers);
+int min = Collections.min(numbers);
+System.out.println("Max: " + max + ", Min: " + min);
+
+// 填充列表
+Collections.fill(numbers, 0);
+System.out.println("Filled list: " + numbers);
+
+// 4. Arrays 工具类 (java.util.Arrays)
+import java.util.Arrays;
+
+// 数组排序
+int[] arr = {3, 1, 2};
+Arrays.sort(arr);
+System.out.println("Sorted array: " + Arrays.toString(arr));
+
+// 数组二分查找
+int index = Arrays.binarySearch(arr, 2);
+System.out.println("Index of 2: " + index);
+
+// 数组填充
+Arrays.fill(arr, 0);
+System.out.println("Filled array: " + Arrays.toString(arr));
+
+// 数组转换为列表
+List<Integer> list = Arrays.asList(1, 2, 3);
+System.out.println("Array as list: " + list);
+
+// 5. StringJoiner 工具类 (java.util.StringJoiner)
+import java.util.StringJoiner;
+
+// 拼接字符串
+StringJoiner joiner = new StringJoiner(", ", "[", "]");
+joiner.add("Java");
+joiner.add("Python");
+joiner.add("C++");
+System.out.println("Joined string: " + joiner.toString());
+
+// 6. Optional 工具类 (java.util.Optional)
+import java.util.Optional;
+
+// 创建Optional
+Optional<String> optional = Optional.of("Java");
+
+// 检查值是否存在
+if (optional.isPresent()) {
+    System.out.println("Value is present: " + optional.get());
+}
+
+// 如果值存在则执行操作
+optional.ifPresent(value -> System.out.println("Value: " + value));
+
+// 如果值不存在则返回默认值
+String result = optional.orElse("Default Value");
+System.out.println("Result: " + result);
+
+// 7. Math 工具类 (java.lang.Math)
+import java.lang.Math;
+
+// 最大值和最小值
+int maxVal = Math.max(10, 20);
+int minVal = Math.min(10, 20);
+System.out.println("Max: " + maxVal + ", Min: " + minVal);
+
+// 四舍五入
+long rounded = Math.round(3.6);
+System.out.println("Rounded value: " + rounded);
+
+// 随机数
+double random = Math.random();
+System.out.println("Random value: " + random);
+
+// 8. LocalDate/LocalTime/LocalDateTime 工具类 (java.time)
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.LocalDateTime;
+
+// 获取当前日期
+LocalDate today = LocalDate.now();
+System.out.println("Today: " + today);
+
+// 获取当前时间
+LocalTime now = LocalTime.now();
+System.out.println("Now: " + now);
+
+// 获取当前日期和时间
+LocalDateTime currentDateTime = LocalDateTime.now();
+System.out.println("Current Date and Time: " + currentDateTime);
+
+// 9. Duration 和 Period 工具类 (java.time)
+import java.time.Duration;
+import java.time.Period;
+
+// 计算时间差
+LocalDateTime start = LocalDateTime.now();
+LocalDateTime end = start.plusHours(2);
+Duration duration = Duration.between(start, end);
+System.out.println("Duration in hours: " + duration.toHours());
+
+// 计算日期差
+LocalDate startDate = LocalDate.now();
+LocalDate endDate = startDate.plusDays(10);
+Period period = Period.between(startDate, endDate);
+System.out.println("Period in days: " + period.getDays());
+
+// 10. ConcurrentHashMap 工具类 (java.util.concurrent.ConcurrentHashMap)
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.Map;
+
+// 创建ConcurrentHashMap
+ConcurrentHashMap<String, Integer> map = new ConcurrentHashMap<>();
+map.put("Alice", 25);
+map.put("Bob", 30);
+
+// 遍历ConcurrentHashMap
+for (Map.Entry<String, Integer> entry : map.entrySet()) {
+    System.out.println(entry.getKey() + ": " + entry.getValue());
+}
+
+// 11. Executors 工具类 (java.util.concurrent.Executors)
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+// 创建线程池
+ExecutorService executor = Executors.newFixedThreadPool(2);
+executor.submit(() -> {
+    System.out.println("Task 1 executed by thread: " + Thread.currentThread().getName());
+});
+executor.submit(() -> {
+    System.out.println("Task 2 executed by thread: " + Thread.currentThread().getName());
+});
+executor.shutdown();
+
+/*=================================================================================================*/
+
+
+/*
+===========================-maven将所有依赖打包成一个jar-start-====================================
+
+<build>
+<plugins>
+    <!-- Maven Assembly Plugin -->
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>2.4.1</version>
+        <configuration>
+            <!-- get all project dependencies -->
+            <descriptorRefs>
+                <descriptorRef>jar-with-dependencies</descriptorRef>
+            </descriptorRefs>
+            <!-- MainClass in mainfest make a executable jar -->
+            <archive>
+                <manifest>
+                    <mainClass>com.healchow.consumer.Main</mainClass>
+                </manifest>
+            </archive>
+        </configuration>
+        <executions>
+            <!-- 配置执行器 -->
+            <execution>
+                <id>make-assembly</id>
+                <!-- 绑定到package命令的生命周期上 -->
+                <phase>package</phase>
+                <goals>
+                    <!-- 只运行一次 -->
+                    <goal>single</goal>
+                </goals>
+            </execution>
+        </executions>
+    </plugin>
+ </plugins>
+</build>
+
+============================--end-==================================== 
+*/

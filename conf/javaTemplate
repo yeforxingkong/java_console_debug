@@ -1,0 +1,36 @@
+import java.util.*;
+import java.net.*;
+
+
+
+public class TemplateJavaCode {
+    
+    private static TemplateJavaCode obj = new TemplateJavaCode();
+    private Object log = null;
+
+
+    public static void main(String[] args) {
+        try{
+            Object out = obj.execJavaCode();
+            System.out.println(out);
+        }catch(Exception e){
+            e.printStackTrace();
+            // System.out.println("Error occurred: " + e.getMessage());
+            // for (StackTraceElement ste : e.getStackTrace()) {
+            //     System.out.println("\tat " + ste);
+            // }
+        }
+    }
+
+    public Object execJavaCode() throws Exception {
+        $execJavaCode
+        return log;
+    }
+    
+/*===========================================================================*/
+
+    public void log(Object obj) {
+        System.out.println(obj);
+    }
+
+}

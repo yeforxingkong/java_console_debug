@@ -1,0 +1,25 @@
+pip 清华镜像 -i https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple 
+
+
+虚拟环境venv
+安装 ： pip install virtualenv 
+创建 ： virtualenv package_venv -p python3.9
+进入 ： .\package_venv\Scripts\activate.ps1
+退出 ： deactivate
+
+
+生成项目依赖包：
+pip install pipreqs
+pipreqs .
+pip install -r .\requirements.txt
+
+
+打包：
+安装 ： pip install pyinstaller
+单文件打包 : pyinstaller -w -F pymain.py 
+(-F 是打包成一个文件，-w是不出现调试窗口)
+项目打包 ： pyinstaller --clean app.spec
+
+项目路径 ：
+base_dir = 'D:\\project\\GitProject\\profile\\java_console\\applications'
+base_dir = 'D:\\project\\python_project\\java_debug_console\\applications'
